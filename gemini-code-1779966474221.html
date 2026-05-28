@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바른 & 고은의 모바일 청첩장</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 리셋 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f7f4ee;
+            color: #333;
+            line-height: 1.7;
+            text-align: center;
+        }
+        
+        /* 모바일 최적화 컨테이너 */
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 60px;
+        }
+
+        /* 명조체 폰트 클래스 */
+        .serif {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        /* 1. 메인 커버 */
+        .cover {
+            padding: 50px 20px 30px;
+            background-color: #fcfbfa;
+        }
+        .cover .date {
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: #8c7b6c;
+            margin-bottom: 15px;
+        }
+        .cover .names {
+            font-size: 26px;
+            color: #444;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+        .cover .names span {
+            font-size: 16px;
+            color: #bbb;
+            margin: 0 6px;
+        }
+        .main-photo-box {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .main-photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 2. 초대글 */
+        .intro {
+            padding: 70px 30px;
+            background-color: #ffffff;
+        }
+        .intro h2 {
+            font-size: 16px;
+            letter-spacing: 4px;
+            color: #8c7b6c;
+            margin-bottom: 35px;
+            font-weight: normal;
+        }
+        .intro p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: #555;
+            word-break: keep-all;
+        }
+        .intro .relations {
+            margin-top: 50px;
+            border-top: 1px solid #f0eade;
+            padding-top: 40px;
+            font-size: 16px;
+        }
+        .intro .relations p {
+            margin-bottom: 10px;
+        }
+        .intro .relations strong {
+            font-weight: 500;
+            color: #222;
+        }
+
+        /* 3. 갤러리 영역 (사진2, 사진3, 사진4) */
+        .gallery {
+            padding: 50px 20px;
+            background-color: #fcfbfa;
+        }
+        .gallery h2 {
+            font-size: 16px;
+            letter-spacing: 4px;
+            color: #8c7b6c;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+        .gallery-grid {
+            display: block;
+        }
+        .gallery-img-wrap {
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .gallery-img-wrap img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 4. 일시 및 장소 */
+        .info {
+            padding: 60px 30px;
+            background-color: #ffffff;
+        }
+        .info .title {
+            font-size: 16px;
+            letter-spacing: 4px;
+            color: #8c7b6c;
+            margin-bottom: 30px;
+        }
+        .info .date-full {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .info .time-full {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .info .place-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+        .info .place-detail {
+            font-size: 14px;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        /* 5. 축의금 안내 */
+        .account-section {
+            padding: 60px 30px;
+            background-color: #f7f4ee;
+        }
+        .account-section h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #8c7b6c;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+        .account-section .sub-text {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+        .account-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: left;
+            font-size: 14px;
+            border: 1px solid #eae5dc;
+        }
+        .account-box p { margin-bottom: 4px; }
+        .btn-copy {
+            display: inline-block;
+            background-color: #9a8b7c;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            float: right;
+            border: none;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* 푸터 */
+        .footer {
+            padding: 40px 20px 20px;
+            font-size: 12px;
+            color: #b0a79f;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <section class="cover">
+        <div class="date serif">2026. 10. 24 SAT PM 1:00</div>
+        <div class="names serif">김바른 <span>|</span> 이고은</div>
+        <div class="main-photo-box">
+            <img src="사진1.jpg" alt="메인 웨딩 사진">
+        </div>
+    </section>
+
+    <section class="intro">
+        <h2 class="serif">INVITATION</h2>
+        <p class="serif">서로가 마주 보며 다져온 사랑을</p>
+        <p class="serif">이제 함께 한 곳을 바라보며 걸어가고자 합니다.</p>
+        <p class="serif">저희의 뜻깊은 출발의 자리에 오셔서</p>
+        <p class="serif">따뜻한 격려와 축복으로 빛내주시기 바랍니다.</p>
+
+        <div class="relations">
+            <p><strong>김철수 · 박영희</strong> 의 장남 <strong class="serif">바른</strong></p>
+            <p><strong>이영호 · 최숙자</strong> 의 장녀 <strong class="serif">고은</strong></p>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2 class="serif">GALLERY</h2>
+        <div class="gallery-grid">
+            <div class="gallery-img-wrap"><img src="사진2.jpg" alt="갤러리 사진 1"></div>
+            <div class="gallery-img-wrap"><img src="사진3.jpg" alt="갤러리 사진 2"></div>
+            <div class="gallery-img-wrap"><img src="사진4.jpg" alt="갤러리 사진 3"></div>
+        </div>
+    </section>
+
+    <section class="info">
+        <h2 class="title serif">DIRECTIONS</h2>
+        <div class="date-full serif">2026년 10월 24일 토요일</div>
+        <div class="time-full serif">오후 1시</div>
+        <div class="place-title">행복웨딩홀 3층 그랜드볼룸</div>
+        <div class="place-detail">서울 강남구 행복로 123 (지하철 강
